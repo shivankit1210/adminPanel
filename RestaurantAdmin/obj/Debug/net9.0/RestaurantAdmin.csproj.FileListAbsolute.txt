@@ -122,3 +122,4 @@ C:\Users\LENOVO\Documents\Shivankit\full stack\RestaurantAdmin\obj\Debug\net9.0\
 C:\Users\LENOVO\Documents\Shivankit\full stack\RestaurantAdmin\obj\Debug\net9.0\RestaurantAdmin.pdb
 C:\Users\LENOVO\Documents\Shivankit\full stack\RestaurantAdmin\obj\Debug\net9.0\RestaurantAdmin.genruntimeconfig.cache
 C:\Users\LENOVO\Documents\Shivankit\full stack\RestaurantAdmin\obj\Debug\net9.0\ref\RestaurantAdmin.dll
+C:\Users\LENOVO\Documents\Shivankit\full stack\RestaurantAdmin\obj\Debug\net9.0\RestaurantAdmin.sourcelink.json
