@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LENOVO\\Documents\\Shivankit\\full stack\\RestaurantAdmin\\RestaurantAdmin.csproj": {}
+    "C:\\Users\\Admin\\Documents\\React_Projects\\adminpanel\\restaurantadmin\\RestaurantAdmin.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LENOVO\\Documents\\Shivankit\\full stack\\RestaurantAdmin\\RestaurantAdmin.csproj": {
+    "C:\\Users\\Admin\\Documents\\React_Projects\\adminpanel\\restaurantadmin\\RestaurantAdmin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LENOVO\\Documents\\Shivankit\\full stack\\RestaurantAdmin\\RestaurantAdmin.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Documents\\React_Projects\\adminpanel\\restaurantadmin\\RestaurantAdmin.csproj",
         "projectName": "RestaurantAdmin",
-        "projectPath": "C:\\Users\\LENOVO\\Documents\\Shivankit\\full stack\\RestaurantAdmin\\RestaurantAdmin.csproj",
-        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LENOVO\\Documents\\Shivankit\\full stack\\RestaurantAdmin\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\Documents\\React_Projects\\adminpanel\\restaurantadmin\\RestaurantAdmin.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Documents\\React_Projects\\adminpanel\\restaurantadmin\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -38,13 +38,17 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
             "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.2, )"
             },
@@ -88,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.103/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

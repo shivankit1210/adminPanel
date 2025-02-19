@@ -10,6 +10,14 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        policy => policy.WithOrigins("http://localhost:3000") // Adjust if needed
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+});
+
 
 var app = builder.Build();
 
@@ -23,6 +31,8 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();
+app.UseCors("AllowAll");
+
 
 
 
