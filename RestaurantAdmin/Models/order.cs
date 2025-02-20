@@ -8,7 +8,7 @@ namespace RestaurantAdmin.Models
         public int Id { get; set; }
         public string? CustomerName { get; set; }
         public string? FoodItem { get; set; }
-        public decimal Price { get; set; }
+        public decimal? Price { get; set; }
         public string Status { get; set; } = "Pending";
     }
 }

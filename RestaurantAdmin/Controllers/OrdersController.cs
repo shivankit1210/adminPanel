@@ -1,3 +1,105 @@
+// using Microsoft.AspNetCore.Mvc;
+// using RestaurantAdmin.Models;
+// using RestaurantAdmin.Data;
+// using Microsoft.EntityFrameworkCore;
+
+// namespace RestaurantAdmin.Controllers
+// {
+//     [Route("api/[controller]")]
+//     [ApiController]
+//     public class OrdersController : ControllerBase
+//     {
+//         private readonly AppDbContext _context;
+
+//         public OrdersController(AppDbContext context)
+//         {
+//             _context = context;
+//         }
+
+//         // Get all orders
+//         [HttpGet]
+//         public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
+//         {
+//             // EnableCors();
+//             return await _context.Orders.ToListAsync();
+//         }
+
+//         // Get order by ID
+//         [HttpGet("{id}")]
+//         public async Task<ActionResult<Order>> GetOrder(int id)
+//         {
+//             // EnableCors();
+//             var order = await _context.Orders.FindAsync(id);
+//             if (order == null) return NotFound(new { message = "Order not found" });
+//             return order;
+//         }
+
+//         // Create a new order
+
+//         [HttpPost]
+//         public async Task<ActionResult<Order>> CreateOrder([FromBody] Order order)
+//         {
+//             Console.WriteLine($"Received order: {order.CustomerName}, {order.FoodItem}, Price: {order.Price}");
+
+//             if (order == null || string.IsNullOrEmpty(order.CustomerName) || string.IsNullOrEmpty(order.FoodItem))
+//             {
+//                 return BadRequest(new { message = "Invalid order data. Please provide CustomerName and FoodItem." });
+//             }
+
+//             if (order.Price <= 0)
+//             {
+//                 return BadRequest(new { message = "Invalid price. Please provide a valid amount." });
+//             }
+
+//             try
+//             {
+//                 _context.Orders.Add(order);
+//                 await _context.SaveChangesAsync();
+//                 return Ok(new { message = "Order placed successfully!", orderId = order.Id });
+//             }
+//             catch (DbUpdateException dbEx)
+//             {
+//                 return StatusCode(500, new { message = "Database error", error = dbEx.InnerException?.Message ?? dbEx.Message });
+//             }
+//             catch (Exception ex)
+//             {
+//                 return StatusCode(500, new { message = "Server error", error = ex.Message });
+//             }
+//         }
+
+//         // Update Order Status
+//         [HttpPut("update-status/{id}")]
+//         public async Task<IActionResult> UpdateOrderStatus(int id, [FromBody] string status)
+//         {
+//             var order = await _context.Orders.FindAsync(id);
+//             if (order == null)
+//             {
+//                 return NotFound(new { message = "Order not found" });
+//             }
+
+//             order.Status = status;  // Update status field
+//             await _context.SaveChangesAsync();
+
+//             return Ok(new { message = "Order status updated successfully!" });
+//         }
+
+
+//         // Delete an order
+//         [HttpDelete("{id}")]
+//         public async Task<IActionResult> DeleteOrder(int id)
+//         {
+
+//             var order = await _context.Orders.FindAsync(id);
+//             if (order == null) return NotFound(new { message = "Order not found" });
+
+//             _context.Orders.Remove(order);
+//             await _context.SaveChangesAsync();
+//             return Ok(new { message = "Order deleted successfully!" });
+//         }
+//     }
+// }
+
+
 using Microsoft.AspNetCore.Mvc;
 using RestaurantAdmin.Models;
 using RestaurantAdmin.Data;
@@ -5,7 +107,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace RestaurantAdmin.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/orders")]  // Explicitly setting route to avoid issues
     [ApiController]
     public class OrdersController : ControllerBase
     {
@@ -20,7 +122,6 @@ namespace RestaurantAdmin.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
         {
-            // EnableCors();
             return await _context.Orders.ToListAsync();
         }
 
@@ -28,17 +129,17 @@ namespace RestaurantAdmin.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Order>> GetOrder(int id)
         {
-            // EnableCors();
             var order = await _context.Orders.FindAsync(id);
             if (order == null) return NotFound(new { message = "Order not found" });
             return order;
         }
 
         // Create a new order
-
         [HttpPost]
         public async Task<ActionResult<Order>> CreateOrder([FromBody] Order order)
         {
+            Console.WriteLine($"Received order: {order.CustomerName}, {order.FoodItem}, Price: {order.Price}");
+
             if (order == null || string.IsNullOrEmpty(order.CustomerName) || string.IsNullOrEmpty(order.FoodItem))
             {
                 return BadRequest(new { message = "Invalid order data. Please provide CustomerName and FoodItem." });
@@ -65,23 +166,32 @@ namespace RestaurantAdmin.Controllers
             }
         }
 
-        // Update an existing order
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateOrder(int id, Order order)
+        // Class to accept order status update
+        public class OrderStatusUpdate
         {
-            // EnableCors();
-            if (id != order.Id) return BadRequest(new { message = "ID mismatch" });
+            public string?  Status { get; set; }
+        }
 
-            _context.Entry(order).State = EntityState.Modified;
+        // Update Order Status
+        [HttpPut("update-status/{id}")]
+        public async Task<IActionResult> UpdateOrderStatus(int id, [FromBody] OrderStatusUpdate request)
+        {
+            var order = await _context.Orders.FindAsync(id);
+            if (order == null)
+            {
+                return NotFound(new { message = "Order not found" });
+            }
+
+            order.Status = request.Status!;  // Update status field
             await _context.SaveChangesAsync();
-            return Ok(new { message = "Order updated successfully!" });
+
+            return Ok(new { message = "Order status updated successfully!" });
         }
 
         // Delete an order
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteOrder(int id)
         {
-
             var order = await _context.Orders.FindAsync(id);
             if (order == null) return NotFound(new { message = "Order not found" });
 
@@ -91,6 +201,7 @@ namespace RestaurantAdmin.Controllers
         }
     }
 }
+
 
 
 
