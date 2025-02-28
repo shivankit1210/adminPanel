@@ -123,3 +123,11 @@ C:\Users\Admin\Documents\React_Projects\adminpanel\restaurantadmin\obj\Debug\net
 C:\Users\Admin\Documents\React_Projects\adminpanel\restaurantadmin\obj\Debug\net9.0\RestaurantAdmin.pdb
 C:\Users\Admin\Documents\React_Projects\adminpanel\restaurantadmin\obj\Debug\net9.0\RestaurantAdmin.genruntimeconfig.cache
 C:\Users\Admin\Documents\React_Projects\adminpanel\restaurantadmin\obj\Debug\net9.0\ref\RestaurantAdmin.dll
+C:\Users\Admin\documents\react_projects\adminpanel\restaurantadmin\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Admin\documents\react_projects\adminpanel\restaurantadmin\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Admin\documents\react_projects\adminpanel\restaurantadmin\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Admin\documents\react_projects\adminpanel\restaurantadmin\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Admin\documents\react_projects\adminpanel\restaurantadmin\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Admin\documents\react_projects\adminpanel\restaurantadmin\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Admin\documents\react_projects\adminpanel\restaurantadmin\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Admin\documents\react_projects\adminpanel\restaurantadmin\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll

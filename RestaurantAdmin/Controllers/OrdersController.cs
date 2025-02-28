@@ -104,11 +104,15 @@ using Microsoft.AspNetCore.Mvc;
 using RestaurantAdmin.Models;
 using RestaurantAdmin.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace RestaurantAdmin.Controllers
 {
     [Route("api/orders")]  // Explicitly setting route to avoid issues
     [ApiController]
+    [Authorize(Roles = "Admin")] // Only Admins can access
+
     public class OrdersController : ControllerBase
     {
         private readonly AppDbContext _context;
