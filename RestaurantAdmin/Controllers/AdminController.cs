@@ -9,6 +9,7 @@ namespace RestaurantAdmin.Controllers
 {
     [Route("api/admin")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class AdminController : ControllerBase
     {
         private readonly IConfiguration _configuration;

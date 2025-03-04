@@ -25,11 +25,11 @@ string jwtIssuer = configuration.GetValue<string>("Jwt:Issuer")
 string jwtAudience = configuration.GetValue<string>("Jwt:Audience")
                      ?? throw new ArgumentNullException("Jwt:Audience is missing in appsettings.json.");
 
-// ✅ Add Database Context
+//  Add Database Context
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
 
-// ✅ Add CORS policy
+//  Add CORS policy
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp", policy =>
@@ -38,7 +38,7 @@ builder.Services.AddCors(options =>
               .AllowAnyHeader());
 });
 
-// ✅ Add Authentication and Authorization
+//  Add Authentication and Authorization
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
